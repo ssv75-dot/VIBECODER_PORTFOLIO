@@ -4,8 +4,8 @@
    ============================================ */
 
 :root {
-  --bg: #050508;
-  --bg-alt: #0b0b10;
+  --bg: #202058;
+  --bg-alt: #363663;
   --bg-card: #0f0f15;
   --bg-card-hover: #14141c;
 
@@ -133,12 +133,12 @@ img {
     transition: none;
   }
 
-  .hero__ring {
+  .hero__scroll-line::after {
     animation: none;
   }
 
-  .hero__scroll-line::after {
-    animation: none;
+  .hero__photo-frame:hover .hero__photo {
+    transform: none;
   }
 }
 
@@ -345,14 +345,14 @@ img {
 
 .hero__layout {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 48px;
-  align-items: end;
+  grid-template-columns: 1fr minmax(280px, 440px);
+  gap: 56px;
+  align-items: center;
   width: 100%;
 }
 
 .hero__inner {
-  max-width: 820px;
+  max-width: 720px;
 }
 
 .hero__label {
@@ -398,58 +398,80 @@ img {
   gap: 14px;
 }
 
-.hero__deco {
+.hero__visual {
   position: relative;
-  width: 200px;
-  height: 280px;
-  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.hero__ring {
+.hero__photo-frame {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(ellipse at 50% 100%, var(--accent-dim) 0%, transparent 55%),
+    var(--bg-card);
+}
+
+.hero__photo-glow {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 180px;
-  height: 180px;
-  border: 1px solid var(--border-strong);
-  border-radius: 50%;
-  animation: ring-pulse 6s var(--ease-out) infinite;
+  inset: -20%;
+  z-index: 0;
+  background: radial-gradient(circle at 50% 40%, var(--accent-glow) 0%, transparent 65%);
+  filter: blur(40px);
+  opacity: 0.45;
+  pointer-events: none;
 }
 
-.hero__ring::before {
-  content: '';
+.hero__photo-corner {
   position: absolute;
-  inset: 20px;
-  border: 1px dashed var(--border);
-  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  z-index: 2;
+  border-color: var(--accent);
+  border-style: solid;
+  pointer-events: none;
 }
 
-@keyframes ring-pulse {
-  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
-  50% { transform: scale(1.04) rotate(8deg); opacity: 1; }
+.hero__photo-corner--tl {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
 }
 
-.hero__tag {
-  position: absolute;
-  top: 50%;
-  right: 30px;
-  transform: translateY(-50%);
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--accent);
-  letter-spacing: -0.04em;
-  writing-mode: vertical-rl;
+.hero__photo-corner--br {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+.hero__photo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-left: 2px solid var(--accent);
+  filter: contrast(1.04) saturate(1.05);
+  transition: transform 0.6s var(--ease-out), filter var(--transition);
+}
+
+.hero__photo-frame:hover .hero__photo {
+  transform: scale(1.02);
+  filter: contrast(1.06) saturate(1.1);
 }
 
 .hero__scroll {
-  position: absolute;
-  bottom: 0;
-  right: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  margin-top: 32px;
 }
 
 .hero__scroll span {
@@ -1115,12 +1137,22 @@ img {
 /* Responsive */
 
 @media (max-width: 1024px) {
-  .hero__deco {
-    display: none;
-  }
-
   .hero__layout {
     grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .hero__visual {
+    order: -1;
+  }
+
+  .hero__photo-frame {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .hero__scroll {
+    display: none;
   }
 
   .cards-grid {
