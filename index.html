@@ -13,6 +13,9 @@
 
   <div class="grain" aria-hidden="true"></div>
   <div class="mesh mesh--hero" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar"></div>
+  </div>
 
   <header class="header">
     <div class="container header__inner">
@@ -36,7 +39,7 @@
             <span class="hero__label-line"></span>
             Vibe Coder / Portfolio / Web &amp; AI Experiences
           </p>
-          <h1 class="hero__title reveal reveal--delay-1">
+          <h1 class="hero__title" id="hero-title">
             Я делаю сайты, интерфейсы и digital-проекты, которые выглядят как
             <span class="accent-text">вайб</span>, а работают как система
           </h1>
@@ -52,12 +55,13 @@
             <a href="#contact" class="btn btn--outline">Обсудить задачу</a>
           </div>
         </div>
-        <div class="hero__visual reveal reveal--delay-2">
-          <div class="hero__photo-frame">
+        <div class="hero__visual reveal reveal--delay-2" id="hero-visual">
+          <div class="hero__photo-frame" id="hero-photo-frame">
             <div class="hero__photo-glow" aria-hidden="true"></div>
             <span class="hero__photo-corner hero__photo-corner--tl" aria-hidden="true"></span>
             <span class="hero__photo-corner hero__photo-corner--br" aria-hidden="true"></span>
-            <img
+            <div class="hero__photo-parallax" id="hero-photo-parallax">
+              <img
               src="assets/hero-photo.png"
               alt="Vibe Coder — web и AI разработка"
               class="hero__photo"
@@ -65,6 +69,7 @@
               height="520"
               loading="eager"
             >
+            </div>
           </div>
           <div class="hero__scroll" aria-hidden="true">
             <span>scroll</span>
@@ -119,8 +124,8 @@
           <span class="section__index">02</span>
           <h2 class="section__title">Что я делаю</h2>
         </div>
-        <div class="cards-grid">
-          <article class="card reveal">
+        <div class="cards-grid stagger-group">
+          <article class="card stagger-item">
             <span class="card__num">01</span>
             <h3 class="card__title">Лендинги</h3>
             <p class="card__text">
@@ -128,7 +133,7 @@
               и ведут человека по смыслу.
             </p>
           </article>
-          <article class="card reveal reveal--delay-1">
+          <article class="card stagger-item">
             <span class="card__num">02</span>
             <h3 class="card__title">Портфолио и личные сайты</h3>
             <p class="card__text">
@@ -136,7 +141,7 @@
               характер и уровень.
             </p>
           </article>
-          <article class="card reveal reveal--delay-2">
+          <article class="card stagger-item">
             <span class="card__num">03</span>
             <h3 class="card__title">Визуальные концепты</h3>
             <p class="card__text">
@@ -144,7 +149,7 @@
               настроение, подача.
             </p>
           </article>
-          <article class="card reveal">
+          <article class="card stagger-item">
             <span class="card__num">04</span>
             <h3 class="card__title">AI + Web</h3>
             <p class="card__text">
@@ -152,7 +157,7 @@
               не как замену мышлению.
             </p>
           </article>
-          <article class="card reveal reveal--delay-1">
+          <article class="card stagger-item">
             <span class="card__num">05</span>
             <h3 class="card__title">UX и структура</h3>
             <p class="card__text">
@@ -160,7 +165,7 @@
               принимает решение.
             </p>
           </article>
-          <article class="card reveal reveal--delay-2">
+          <article class="card stagger-item">
             <span class="card__num">06</span>
             <h3 class="card__title">Быстрый запуск</h3>
             <p class="card__text">
@@ -179,8 +184,11 @@
           <span class="section__index">03</span>
           <h2 class="section__title">Как я работаю</h2>
         </div>
-        <div class="steps">
-          <div class="step reveal">
+        <div class="steps" id="steps">
+          <div class="steps__rail" aria-hidden="true">
+            <span class="steps__rail-fill" id="steps-rail-fill"></span>
+          </div>
+          <div class="step reveal" data-step="1">
             <div class="step__marker"></div>
             <span class="step__num">01</span>
             <h3 class="step__title">Сначала вайб</h3>
@@ -189,7 +197,7 @@
               передавать проект.
             </p>
           </div>
-          <div class="step reveal reveal--delay-1">
+          <div class="step reveal reveal--delay-1" data-step="2">
             <div class="step__marker"></div>
             <span class="step__num">02</span>
             <h3 class="step__title">Потом структура</h3>
@@ -198,7 +206,7 @@
               собираю смысл, сценарий и путь пользователя.
             </p>
           </div>
-          <div class="step reveal reveal--delay-2">
+          <div class="step reveal reveal--delay-2" data-step="3">
             <div class="step__marker"></div>
             <span class="step__num">03</span>
             <h3 class="step__title">Потом реализация</h3>
