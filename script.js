@@ -3,51 +3,21 @@
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
 
-  /* ── 1. Hero word-by-word title ── */
-  function splitHeroTitle() {
+  /* ── 1. Hero BlurText title ── */
+  function initHeroBlurText() {
     const title = document.getElementById('hero-title');
-    if (!title) return;
+    if (!title || !window.BlurText) return;
 
-    let wordIndex = 0;
-
-    function wrapTextNode(node) {
-      const parts = node.textContent.split(/(\s+)/);
-      const frag = document.createDocumentFragment();
-
-      parts.forEach((part) => {
-        if (!part) return;
-        if (/^\s+$/.test(part)) {
-          frag.appendChild(document.createTextNode(part));
-        } else {
-          const span = document.createElement('span');
-          span.className = 'hero__word';
-          span.style.setProperty('--word-i', wordIndex++);
-          span.textContent = part;
-          frag.appendChild(span);
-        }
-      });
-
-      node.parentNode.replaceChild(frag, node);
-    }
-
-    Array.from(title.childNodes).forEach((node) => {
-      if (node.nodeType === Node.TEXT_NODE) {
-        wrapTextNode(node);
-      } else if (node.nodeType === Node.ELEMENT_NODE && node.classList.contains('accent-text')) {
-        node.classList.add('hero__word');
-        node.style.setProperty('--word-i', wordIndex++);
-      }
+    BlurText.init(title, {
+      animateBy: 'words',
+      direction: 'bottom',
+      delay: 200,
+      stepDuration: 0.35,
+      startImmediately: true,
+      onAnimationComplete: () => {
+        title.classList.add('blur-text--done');
+      },
     });
-
-    title.classList.add('hero__title--split');
-
-    if (!prefersReduced) {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => title.classList.add('is-animated'));
-      });
-    } else {
-      title.classList.add('is-animated');
-    }
   }
 
   /* ── 2. Hero entrance (non-title elements) ── */
@@ -209,8 +179,21 @@
     onScroll();
   }
 
+  /* ── Target cursor ── */
+  function initTargetCursor() {
+    if (!window.TargetCursor) return;
+    TargetCursor.init({
+      spinDuration: 2,
+      hideDefaultCursor: true,
+      parallaxOn: true,
+      hoverDuration: 0.2,
+      cursorColor: '#ffffff',
+      cursorColorOnTarget: '#d8ff4a',
+    });
+  }
+
   /* Init */
-  splitHeroTitle();
+  initHeroBlurText();
   initHeroReveal();
   initScrollReveal();
   initStagger();
@@ -218,4 +201,5 @@
   initParallax();
   initStepsTimeline();
   initHeader();
+  initTargetCursor();
 })();

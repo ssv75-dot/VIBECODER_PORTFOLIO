@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="target-cursor.css">
 </head>
 <body>
 
@@ -24,6 +25,7 @@
         <a href="#about"><span class="nav__index">01</span>Обо мне</a>
         <a href="#skills"><span class="nav__index">02</span>Услуги</a>
         <a href="#projects"><span class="nav__index">03</span>Проекты</a>
+        <a href="#reviews"><span class="nav__index">04</span>Отзывы</a>
         <a href="#contact" class="nav__cta">Контакты</a>
       </nav>
     </div>
@@ -291,11 +293,111 @@
       </div>
     </section>
 
+    <!-- Отзывы -->
+    <section class="section section--alt reviews" id="reviews">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__index">05</span>
+          <h2 class="section__title">Отзывы</h2>
+          <p class="reviews__lead reveal reveal--delay-1">
+            Что говорят после запуска — не просто «сверстали и отдали», а собрали страницу, которую хочется показывать.
+          </p>
+        </div>
+      </div>
+
+      <div class="reviews-scroll" id="reviews-scroll">
+        <div class="reviews-sticky">
+          <div class="reviews-cards" id="reviews-cards">
+            <article class="review-card cursor-target" data-index="2" aria-label="Отзыв от Анны К.">
+              <div class="review-card__stars" aria-label="Оценка 5 из 5">
+                <span class="review-card__star review-card__star--filled"></span>
+                <span class="review-card__star review-card__star--filled"></span>
+                <span class="review-card__star review-card__star--filled"></span>
+                <span class="review-card__star review-card__star--filled"></span>
+                <span class="review-card__star review-card__star--filled"></span>
+              </div>
+              <blockquote class="review-card__quote">
+                Сайт получился не шаблонным — сразу чувствуется характер. Быстро, стильно и без лишней воды в процессе.
+              </blockquote>
+              <div class="review-card__author">
+                <img class="review-card__avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop&q=80" alt="Анна К." width="48" height="48" loading="lazy">
+                <div>
+                  <span class="review-card__name">Анна К.</span>
+                  <span class="review-card__role">эксперт, личный бренд</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="review-card cursor-target" data-index="3" aria-label="Отзыв от Максима Р.">
+              <div class="review-card__stars" aria-label="Оценка 5 из 5">
+                <span class="review-card__star review-card__star--filled"></span>
+                <span class="review-card__star review-card__star--filled"></span>
+                <span class="review-card__star review-card__star--filled"></span>
+                <span class="review-card__star review-card__star--filled"></span>
+                <span class="review-card__star review-card__star--filled"></span>
+              </div>
+              <blockquote class="review-card__quote">
+                Лендинг под AI-продукт собрали за несколько дней. Структура, тексты и визуал — всё на уровне, конверсия выросла.
+              </blockquote>
+              <div class="review-card__author">
+                <img class="review-card__avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80" alt="Максим Р." width="48" height="48" loading="lazy">
+                <div>
+                  <span class="review-card__name">Максим Р.</span>
+                  <span class="review-card__role">основатель AI-стартапа</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="review-card cursor-target" data-index="4" aria-label="Отзыв от Елены В.">
+              <div class="review-card__stars" aria-label="Оценка 4.5 из 5">
+                <span class="review-card__star review-card__star--filled"></span>
+                <span class="review-card__star review-card__star--filled"></span>
+                <span class="review-card__star review-card__star--filled"></span>
+                <span class="review-card__star review-card__star--filled"></span>
+                <span class="review-card__star review-card__star--half"></span>
+              </div>
+              <blockquote class="review-card__quote">
+                Портфолио наконец начало передавать мой стиль, а не просто показывать картинки. Подача стала в разы сильнее.
+              </blockquote>
+              <div class="review-card__author">
+                <img class="review-card__avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" alt="Елена В." width="48" height="48" loading="lazy">
+                <div>
+                  <span class="review-card__name">Елена В.</span>
+                  <span class="review-card__role">креативный директор</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="review-card cursor-target" data-index="5" aria-label="Отзыв от Игоря Д.">
+              <div class="review-card__stars" aria-label="Оценка 5 из 5">
+                <span class="review-card__star review-card__star--filled"></span>
+                <span class="review-card__star review-card__star--filled"></span>
+                <span class="review-card__star review-card__star--filled"></span>
+                <span class="review-card__star review-card__star--filled"></span>
+                <span class="review-card__star review-card__star--filled"></span>
+              </div>
+              <blockquote class="review-card__quote">
+                Редко когда подрядчик думает и про UX, и про вайб одновременно. Здесь это работает как единая система.
+              </blockquote>
+              <div class="review-card__author">
+                <img class="review-card__avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" alt="Игорь Д." width="48" height="48" loading="lazy">
+                <div>
+                  <span class="review-card__name">Игорь Д.</span>
+                  <span class="review-card__role">digital-студия</span>
+                </div>
+              </div>
+            </article>
+          </div>
+          <p class="reviews-scroll-hint" aria-hidden="true">Листай вниз — карточки перелистываются</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Почему со мной -->
     <section class="section" id="why">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__index">05</span>
+          <span class="section__index">06</span>
           <h2 class="section__title">Почему ко мне идут не просто за кодом</h2>
         </div>
         <div class="why__grid">
@@ -331,7 +433,7 @@
     <section class="section section--alt" id="stack">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__index">06</span>
+          <span class="section__index">07</span>
           <h2 class="section__title">Инструменты</h2>
         </div>
         <div class="badges reveal">
@@ -356,7 +458,7 @@
     <section class="section" id="audience">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__index">07</span>
+          <span class="section__index">08</span>
           <h2 class="section__title">Кому подойдёт моя работа</h2>
         </div>
         <ul class="audience-list">
@@ -427,6 +529,11 @@
 
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="target-cursor.js"></script>
+  <script src="blur-text.js"></script>
+  <script src="reviews-stack.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
